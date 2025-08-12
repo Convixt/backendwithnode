@@ -5,10 +5,35 @@
 //     else console.log("done");
 // })
 
-const http = require('http');
-const server = http.createServer(function(req, res){
-    res.end("hellow world");
+
+ // http and server
+
+// const http = require('http');
+// const server = http.createServer(function(req, res){
+//     res.end("hellow world");
+
+// })
+
+// server.listen(3000);
+
+
+
+
+//express js concepts 
+
+import express from 'express'
+
+const app = express();
+
+app.use((req, res , next) => {
+    console.log("middleware 1");
+    next();
 
 })
 
-server.listen(3000);
+
+app.get('/', (req, res) => {
+  res.send('Hello Dost ')
+})
+
+app.listen(3000);
