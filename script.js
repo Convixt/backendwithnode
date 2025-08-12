@@ -35,5 +35,14 @@ app.use((req, res , next) => {
 app.get('/', (req, res) => {
   res.send('Hello Dost ')
 })
+app.get('/profile', (req, res, next) => {
+    return next(new Error("Oops! It's on our end"))
+//   res.send('Profile shortlisted')
+})
+
+app.use((err , req , res, next)=>{
+    console.log(err.stack)
+    res.status(500).send("Something went wrong we will fix it")
+})
 
 app.listen(3000);
