@@ -25,11 +25,16 @@ import express from 'express'
 
 const app = express();
 
+
+
 app.use((req, res , next) => {
     console.log("middleware 1");
     next();
 
 })
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 app.get('/', (req, res) => {
