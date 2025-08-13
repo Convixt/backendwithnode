@@ -15,6 +15,12 @@ app.get("/", (req,res) => {
     res.render("index");
 });
 
+
+//dynamic routing 
+app.get("/profile/:username", (req,res) => {
+    res.send(req.params.username);
+});
+
 app.listen(3000, ()=>{
     console.log("Server is running on port 3000");
 })
